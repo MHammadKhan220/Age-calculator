@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Age Calculator Pro</h1>
+        <p class="header-subtitle">Discover your exact age, time lived, and more!</p>
+    </header>
+    
+    <div class="main-container">
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h2>Enter Your Birth Details</h2>
+            </div>
+            
+            <div class="calculator-body">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="day"><i class="fas fa-calendar-day"></i> Day</label>
+                        <input type="number" id="day" min="1" max="31" placeholder="DD" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="month"><i class="fas fa-calendar-month"></i> Month</label>
+                        <select id="month" required>
+                            <option value="">Select Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="year"><i class="fas fa-calendar-year"></i> Year</label>
+                        <input type="number" id="year" min="1900" max="2099" placeholder="YYYY" required>
+                    </div>
+                </div>
+                
+                <button class="calculate-btn" onclick="calculateAge()">
+                    <i class="fas fa-calculator"></i> Calculate My Age
+                </button>
+                
+                <div class="result-container" id="result">
+                    <h3 class="result-title"><i class="fas fa-birthday-cake"></i> Your Age Results</h3>
+                    <div class="age-result" id="ageResult"></div>
+                    
+                    <div class="life-progress">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="lifeProgress"></div>
+                        </div>
+                        <div class="progress-text" id="progressText"></div>
+                    </div>
+                    
+                    <div class="time-lived">
+                        <h4 class="time-lived-title"><i class="fas fa-clock"></i> Time You've Lived</h4>
+                        <div class="time-grid">
+                            <div class="time-box">
+                                <div class="time-value" id="yearsLived">0</div>
+                                <div class="time-label">Years</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-value" id="monthsLived">0</div>
+                                <div class="time-label">Months</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-value" id="daysLived">0</div>
+                                <div class="time-label">Days</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-value" id="hoursLived">0</div>
+                                <div class="time-label">Hours</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="additional-info">
+                        <div class="info-box">
+                            <div class="info-title"><i class="fas fa-calendar-check"></i> Next Birthday</div>
+                            <div class="info-value" id="nextBirthday"></div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="info-title"><i class="fas fa-star"></i> Zodiac Sign</div>
+                            <div class="info-value" id="zodiacSign"></div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="info-title"><i class="fas fa-calendar-day"></i> Birth Day</div>
+                            <div class="info-value" id="birthDay"></div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="info-title"><i class="fas fa-heart"></i> Life Milestone</div>
+                            <div class="info-value" id="lifeMilestone"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="share-buttons">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> Tweet
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">AgeCalculator</div>
+                <p class="footer-about">The most advanced age calculator on the web. Discover your exact age, time lived, and fun facts about your birthday!</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> mhammadkhan420@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +92349 8959305</p>
+                <p><i class="fas fa-map-marker-alt"></i>Kashmir</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; <span id="currentYear"></span> RMHK. All rights reserved.
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
